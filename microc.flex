@@ -67,15 +67,16 @@ static void guarda_lexema(void) {
 
 //em andamento identificar caractere escape e colocar ASC no lexema
 void substituirSeqEscape() {
-    char *copia=strdup(yytext);
-    char *atual, escreve;
+    char *copia=strdup(yytext); 
+    char escreve;
+    int posicaoLeitura = 0;
+    int posicaoEscrita = 0;
 
-    atual = yytext;
+    while(yytext[posicaoLeitura] != '\0') {
+        escreve = yytext[posicaoLeitura];
+        if(yytext[posicaoLeitura] == '\\') {
 
-    while(*atual != '\0') {
-        if(*atual == '\\') {
-            char proximo = *(atual+1);
-
+            char proximo = (yytext[posicaoLeitura+1]);
             switch(proximo) {
                 case 't':
                     escreve = '\t';
@@ -88,12 +89,25 @@ void substituirSeqEscape() {
                     break;
                 case '"':
                     escreve = '"';
-                    break;
-            }
-        }
-    }
+                    break; 
+                default:
+                    posicaoLeitura+=2;
+                    microc_yylval.error_msg = "Sequencia não reconhecida";
 
-    
+            }
+
+            posicaoLeitura+=2;
+            copia[posicaoEscrita++] = escreve;
+            
+        } else {
+            posicaoLeitura++;
+            copia[posicaoEscrita++] = escreve;
+        }
+
+    }
+    copia[posicaoEscrita] = '\0';
+    printf("/////////////////////////\n\n%s\n---",copia);
+    microc_yylval.symbol = copia;
 }
 %}
 

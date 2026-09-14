@@ -44,3 +44,19 @@ Trecho : rotina substituirSeqEscape para tratamento de sequências de escape
 Finalidade : pedi ajuda para identificar a causa de um problema de realce sintático no trecho case '"' e para revisar possíveis erros no código que escrevi
 
 O que fiz : usei a explicação para identificar que case '"' e charInserir = '"' são válidos em C e que havia um problema no uso de ponteiro e char na rotina
+
+Ferramenta : ChatGPT ( GPT -5.6 Luna )
+
+Trecho : rotina substituirSeqEscape para conversão de sequências de escape
+
+Finalidade : pedi uma revisão do código que escrevi para identificar erros na implementação da conversão de sequências de escape
+
+O que fiz : usei a explicação para identificar problemas de ponteiros, avanço no texto de entrada, caracteres normais não tratados, possível uso de variável não inicializada e perda do ponteiro para o início do buffer de saída
+
+Ferramenta : ChatGPT ( GPT -5.6 Luna )
+
+Trecho : rotina substituirSeqEscape para conversão de sequências de escape
+
+Finalidade : pedi uma revisão da implementação atual da rotina para verificar os erros restantes na conversão de sequências de escape
+
+O que fiz : identifiquei o erro no acesso ao próximo caractere e compreendi que a conversão de uma sequência de dois caracteres para um único caractere exige separar posição de leitura e posição de escrita
