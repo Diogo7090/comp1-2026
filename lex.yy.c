@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 39
-#define YY_END_OF_BUFFER 40
+#define YY_NUM_RULES 41
+#define YY_END_OF_BUFFER 42
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -360,14 +360,15 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[57] =
+static const flex_int16_t yy_accept[68] =
     {   0,
-        0,    0,    0,    0,    0,    0,   40,   38,    2,    1,
-       18,   14,   29,   38,   13,   32,   33,   27,   25,   31,
-       26,   28,   11,   30,   20,   16,   22,    9,   36,   37,
-       34,   38,   35,    7,    6,    7,   39,    2,   17,   23,
-       13,    8,   10,    4,    3,   11,   19,   15,   21,    9,
-       24,    5,   13,   12,    3,    0
+        0,    0,    0,    0,   42,   40,    2,    1,   20,   40,
+       31,   40,   14,   34,   35,   29,   27,   33,   28,   30,
+       11,   32,   22,   18,   24,    9,   38,   39,   36,   40,
+       37,    7,    6,    7,    2,   19,    0,   16,   15,    0,
+       25,   14,   14,    8,   12,    4,    3,   11,   10,   21,
+       17,   23,    9,   26,    5,    0,   14,   13,   14,   14,
+       14,    3,    0,   14,   14,   13,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -381,11 +382,11 @@ static const YY_CHAR yy_ec[256] =
        19,   20,    1,    1,   21,   21,   21,   21,   21,   21,
        21,   21,   21,   21,   21,   21,   21,   21,   21,   21,
        21,   21,   21,   21,   21,   21,   21,   21,   21,   21,
-       22,    1,   23,    1,   21,    1,   21,   21,   21,   21,
+       22,   23,   24,    1,   21,    1,   21,   21,   21,   21,
 
        21,   21,   21,   21,   21,   21,   21,   21,   21,   21,
        21,   21,   21,   21,   21,   21,   21,   21,   21,   21,
-       21,   21,   24,   25,   26,    1,    1,    1,    1,    1,
+       21,   21,   25,   26,   27,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -402,63 +403,71 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[27] =
+static const YY_CHAR yy_meta[28] =
     {   0,
         1,    1,    2,    1,    1,    1,    1,    3,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1
+        1,    1,    1,    1,    1,    1,    1
     } ;
 
-static const flex_int16_t yy_base[62] =
+static const flex_int16_t yy_base[76] =
     {   0,
-        0,    0,   24,   25,    0,    0,   64,   65,   61,   65,
-       43,   65,   65,   54,    0,   65,   65,   45,   65,   65,
-       43,   18,   42,   65,   38,   37,   36,   16,   65,   65,
-       65,   29,   65,   65,   65,   38,   65,   50,   65,   65,
-       42,   65,   31,   65,    0,   22,   65,   65,   65,   18,
-       65,   65,   23,   65,    0,   65,   39,   42,   29,   45,
-       48
+        0,    0,   25,   26,  101,  102,   98,  102,   80,   27,
+      102,   91,   74,  102,  102,   81,  102,  102,   79,   20,
+       17,  102,   74,   71,   68,   18,  102,  102,  102,   58,
+      102,  102,  102,   66,   66,  102,   37,  102,  102,   38,
+      102,   36,   38,  102,   51,  102,    0,   31,   44,  102,
+      102,  102,   32,  102,  102,   40,   41,  102,   43,   46,
+       47,    0,    0,   48,   49,   50,  102,   73,   76,   61,
+       79,   82,   85,   88,   91
     } ;
 
-static const flex_int16_t yy_def[62] =
+static const flex_int16_t yy_def[76] =
     {   0,
-       56,    1,   57,   57,   58,   58,   56,   56,   56,   56,
-       56,   56,   56,   56,   59,   56,   56,   56,   56,   56,
-       56,   56,   56,   56,   56,   56,   56,   56,   56,   56,
-       56,   56,   56,   56,   56,   56,   56,   56,   56,   56,
-       60,   56,   56,   56,   61,   56,   56,   56,   56,   56,
-       56,   56,   60,   56,   61,    0,   56,   56,   56,   56,
-       56
+       67,    1,   68,   68,   67,   67,   67,   67,   67,   69,
+       67,   67,   70,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   69,   67,   67,   69,
+       67,   71,   72,   67,   67,   67,   73,   67,   67,   67,
+       67,   67,   67,   67,   67,   74,   71,   67,   75,   71,
+       75,   73,   74,   71,   75,   71,    0,   67,   67,   67,
+       67,   67,   67,   67,   67
     } ;
 
-static const flex_int16_t yy_nxt[92] =
+static const flex_int16_t yy_nxt[130] =
     {   0,
-        8,    9,   10,   11,   12,   13,   14,   15,   16,   17,
-       18,   19,   20,   21,   22,   23,   24,   25,   26,   27,
-       28,   29,   30,   31,   32,   33,   35,   35,   44,   41,
-       56,   50,   45,   50,   36,   36,   50,   46,   50,   34,
-       34,   34,   37,   37,   37,   53,   43,   53,   55,   54,
-       55,   38,   52,   51,   49,   48,   47,   46,   43,   42,
-       40,   39,   38,   56,    7,   56,   56,   56,   56,   56,
-       56,   56,   56,   56,   56,   56,   56,   56,   56,   56,
-       56,   56,   56,   56,   56,   56,   56,   56,   56,   56,
-       56
+        6,    7,    8,    9,   10,   11,   12,   13,   14,   15,
+       16,   17,   18,   19,   20,   21,   22,   23,   24,   25,
+       26,   27,    6,   28,   29,   30,   31,   33,   33,   38,
+       46,   39,   48,   53,   47,   34,   34,   49,   53,   38,
+       38,   39,   56,   58,   39,   42,   48,   53,   67,   40,
+       57,   49,   53,   58,   66,   67,   57,   67,   59,   40,
+       61,   42,   63,   59,   49,   65,   45,   35,   59,   65,
+       59,   65,   59,   32,   32,   32,   37,   37,   37,   57,
+       55,   57,   60,   54,   60,   62,   52,   62,   56,   51,
+       56,   64,   50,   64,   45,   44,   43,   41,   36,   35,
 
+       67,    5,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67
     } ;
 
-static const flex_int16_t yy_chk[92] =
+static const flex_int16_t yy_chk[130] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    3,    4,   22,   59,
-       53,   28,   22,   50,    3,    4,   28,   46,   50,   57,
-       57,   57,   58,   58,   58,   60,   43,   60,   61,   41,
-       61,   38,   36,   32,   27,   26,   25,   23,   21,   18,
-       14,   11,    9,    7,   56,   56,   56,   56,   56,   56,
-       56,   56,   56,   56,   56,   56,   56,   56,   56,   56,
-       56,   56,   56,   56,   56,   56,   56,   56,   56,   56,
-       56
+        1,    1,    1,    1,    1,    1,    1,    3,    4,   10,
+       20,   10,   21,   26,   20,    3,    4,   21,   26,   37,
+       40,   37,   40,   42,   56,   43,   48,   53,   57,   10,
+       59,   48,   53,   60,   61,   64,   65,   66,   42,   37,
+       43,   70,   56,   57,   49,   59,   45,   35,   60,   61,
+       64,   65,   66,   68,   68,   68,   69,   69,   69,   71,
+       34,   71,   72,   30,   72,   73,   25,   73,   74,   24,
+       74,   75,   23,   75,   19,   16,   13,   12,    9,    7,
 
+        5,   67,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -475,123 +484,126 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "microc3.flex"
-/* 
- * microc.flex 
- * 
- * Esqueleto do analisador lexico (scanner) para a linguagem Micro C. 
- * Disciplina: Compiladores I - FACOM 
- * 
- * Este arquivo NAO esta completo. Partes do reconhecimento de tokens 
- * foram implementadas apenas como EXEMPLO, para orienta-lo(a) sobre o 
- * padrao a seguir. As demais estao marcadas com "TODO(aluno)" e devem 
- * ser completadas por voce. 
- * 
- * Compilacao: 
- *      flex microc.flex 
- *      gcc lex.yy.c -o lexer 
- * 
- * Uso: 
- *      ./lexer test.mc 
- */ 
-#line 21 "microc3.flex"
-#include <stdio.h> 
-#include <stdlib.h> 
-#include <string.h> 
- 
-/* --------------------------------------------------------------------- 
- * 1. VOCABULARIO DE TOKENS (equivalente a tokens.h) 
- * ------------------------------------------------------------------- */ 
- 
-typedef enum { 
-    /* Tokens fundamentais */ 
-    UNDEF, 
-    ID, 
-    END_OF_FILE, 
- 
-    /* Constantes literais */ 
-    INTEGERCONST, 
-    CHARCONST, 
-    STRINGCONST, 
- 
-    /* Operadores aritmeticos */ 
-    PLUS, MINUS, MUL, DIV, MOD, 
- 
-    /* Operadores relacionais e logicos */ 
-    EQ, NEQ, LT, GT, LEQ, GEQ, AND, OR, NOT, 
- 
-    /* Simbolos de atribuicao e pontuacao */ 
-    ASSIGN, SEMICOLON, COMMA, LPAREN, RPAREN, 
-    LBRACE, RBRACE, LBRACKET, RBRACKET, 
- 
-    /* Palavras reservadas */ 
-    MAIN, IF, ELSE, FOR, RETURN, INT, CHAR, PRINT 
-} TokenType; 
- 
-/* Nomes dos tokens, usados apenas pelo main() de teste abaixo para 
- * imprimir o tipo de cada token de forma legivel. Mantenha esta lista 
- * na MESMA ORDEM do enum TokenType. */ 
-static const char *nome_token[] = { 
-    "UNDEF", "ID", "END_OF_FILE", 
-    "INTEGERCONST", "CHARCONST", "STRINGCONST", 
-    "PLUS", "MINUS", "MUL", "DIV", "MOD", 
-    "EQ", "NEQ", "LT", "GT", "LEQ", "GEQ", "AND", "OR", "NOT", 
-    "ASSIGN", "SEMICOLON", "COMMA", "LPAREN", "RPAREN", 
-    "LBRACE", "RBRACE", "LBRACKET", "RBRACKET", 
-    "MAIN", "IF", "ELSE", "FOR", "RETURN", "INT", "CHAR", "PRINT" 
-}; 
- 
-/* Valor semantico do token corrente. */ 
-typedef struct { 
-    char *symbol; 
-    char *error_msg; 
-} YYSTYPE; 
- 
-YYSTYPE microc_yylval; 
- 
-int linha_atual = 1; 
- 
-TokenType ultimo_token = UNDEF;
+#line 1 "microc.flex"
+#line 2 "microc.flex"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-char lexema[4000];
- 
-static void guarda_lexema(void) { 
-    microc_yylval.symbol = strdup(yytext); 
-} 
- 
-static int pode_ser_sinal(void) { 
-    if (ultimo_token == ASSIGN || 
-        ultimo_token == LPAREN || 
-        ultimo_token == COMMA || 
-        ultimo_token == PLUS || 
-        ultimo_token == MINUS || 
-        ultimo_token == MUL || 
-        ultimo_token == DIV || 
-        ultimo_token == MOD || 
-        ultimo_token == EQ || 
-        ultimo_token == NEQ || 
-        ultimo_token == LT || 
-        ultimo_token == GT || 
-        ultimo_token == LEQ || 
-        ultimo_token == GEQ || 
-        ultimo_token == AND || 
-        ultimo_token == OR) { 
-        return 1; 
-    } 
- 
-    return 0; 
-} 
- 
-#line 585 "lex.yy.c"
-/* ----------------------------------------------------------------------- 
- * 2. SECAO DE DEFINICOES 
- * ------------------------------------------------------------------- */ 
+/* ---------------------------------------------------------------------
+ * 1. VOCABULARIO DE TOKENS (equivalente a tokens.h)
+ * ------------------------------------------------------------------- */
 
-#line 590 "lex.yy.c"
+typedef enum {
+    /* Tokens fundamentais */
+    TK_UNDEF,          /* token indefinido (usado para reportar erros) */
+    TK_ID,             /* identificador                                */
+    TK_END_OF_FILE,    /* fim de arquivo                                */
+
+    /* Constantes literais */
+    TK_INTEGERCONST,
+    TK_CHARCONST,
+    TK_STRINGCONST,
+
+    /* Operadores aritmeticos */
+    TK_PLUS, TK_MINUS, TK_MUL, TK_DIV, TK_MOD,
+
+    /* Operadores relacionais e logicos */
+    TK_EQ, TK_NEQ, TK_LT, TK_GT, TK_LEQ, TK_GEQ, TK_AND, TK_OR, TK_NOT,
+
+    /* Simbolos de atribuicao e pontuacao */
+    TK_ASSIGN, TK_SEMICOLON, TK_COMMA, TK_LPAREN, TK_RPAREN,
+    TK_LBRACE, TK_RBRACE, TK_LBRACKET, TK_RBRACKET,
+
+    /* Palavras reservadas */
+    TK_MAIN, TK_IF, TK_ELSE, TK_FOR, TK_RETURN, TK_INT, TK_CHAR, TK_PRINT
+} TokenType;
+
+/* Nomes dos tokens, usados apenas pelo main() de teste abaixo para
+ * imprimir o tipo de cada token de forma legivel. Mantenha esta lista
+ * na MESMA ORDEM do enum TokenType. */
+static const char *nome_token[] = {
+    "TK_UNDEF", "TK_ID", "TK_END_OF_FILE",
+    "TK_INTEGERCONST", "TK_CHARCONST", "TK_STRINGCONST",
+    "TK_PLUS", "TK_MINUS", "TK_MUL", "TK_DIV", "TK_MOD",
+    "TK_EQ", "TK_NEQ", "TK_LT", "TK_GT", "TK_LEQ", "TK_GEQ", "TK_AND", "TK_OR", "TK_NOT",
+    "TK_ASSIGN", "TK_SEMICOLON", "TK_COMMA", "TK_LPAREN", "TK_RPAREN",
+    "TK_LBRACE", "TK_RBRACE", "TK_LBRACKET", "TK_RBRACKET",
+    "TK_MAIN", "TK_IF", "TK_ELSE", "TK_FOR", "TK_RETURN", "TK_INT", "TK_CHAR", "TK_PRINT"
+};
+
+/* Valor semantico do token corrente. */
+typedef struct {
+    char *symbol;      /* lexema para ID, INTEGERCONST, CHARCONST, STRINGCONST */
+    char *error_msg;   /* mensagem de erro, usada apenas quando tipo == UNDEF   */
+} YYSTYPE;
+
+YYSTYPE microc_yylval;
+
+/* Linha atual do arquivo-fonte sendo processado. Deve ser incrementada
+ * toda vez que uma quebra de linha for consumida pelo scanner (seja em
+ * codigo "normal", dentro de comentarios ou dentro de strings). */
+int linha_atual = 1;
+int coluna_atual = 1;
+
+/* Funcao auxiliar para preencher microc_yylval.symbol com uma copia do
+ * texto reconhecido (yytext). Sinta-se livre para usar/adaptar. */
+static void guarda_lexema(void) {
+    microc_yylval.symbol = strdup(yytext);
+}
+
+//em andamento identificar caractere escape e colocar ASC no lexema
+void substituirSeqEscape() {
+    char *copia=strdup(yytext); 
+    char escreve;
+    int posicao = 0;
+
+    while(copia[posicao] != '\0') {
+        escreve = *copia[posicao];
+        if(*copia[posicao] == '\\') {
+
+            char proximo = *(atual+1);
+            \\asddsad\n\0
+            \\asddsad1
+            switch(proximo) {
+                case 't':
+                    escreve = '\t';
+                    posicao+=2; //pula
+                    break;
+                case 'n':
+                    escreve = '\n';
+                    posicao+=2; //pula
+                    break;
+                case '\\':
+                    escreve = '\\';
+                    posicao+=2; //pula
+                    break;
+                case '"':
+                    escreve = '"';
+                    posicao+=2; //pula
+                    break; 
+                default:
+                    posicao+=2;
+                    microc_yylval.error_msg = "Sequencia não reconhecida";
+                    return TK_UNDEF;
+
+            }
+            *copia[posicao-1] = escreve;
+        }
+
+    }
+    printf("/////////////////////////\n\n%s\n---",copia);
+    microc_yylval.symbol = strdup(copia);
+}
+#line 598 "lex.yy.c"
+/* -----------------------------------------------------------------------
+ * 2. SECAO DE DEFINICOES
+ * ------------------------------------------------------------------- */
+
+#line 603 "lex.yy.c"
 
 #define INITIAL 0
 #define COMMENT 1
-#define STRING 2
 
 #ifndef YY_NO_UNISTD_H
 /* Special case for "unistd.h", since it is non-ANSI. We include it way
@@ -806,19 +818,16 @@ YY_DECL
 		}
 
 	{
-#line 121 "microc3.flex"
+#line 123 "microc.flex"
 
-#line 123 "microc3.flex"
-  /* ----------------------------------------------------------------------- 
-   * 3. SECAO DE REGRAS 
-   * --------------------------------------------------------------------- */ 
- 
-  /* --- Fim de arquivo ----------------------------------------------------- 
-   * Tratada explicitamente (em vez de depender do retorno automatico 0 
-   * do flex), pois o token UNDEF tambem vale 0 no enum TokenType -- se 
-   * dependessemos do comportamento padrao, um erro lexico seria 
-   * confundido com o fim do arquivo pelo main() de teste abaixo. */ 
-#line 821 "lex.yy.c"
+
+#line 126 "microc.flex"
+ /* -----------------------------------------------------------------------
+  * 3. SECAO DE REGRAS
+  * --------------------------------------------------------------------- */
+
+
+#line 830 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -845,13 +854,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 57 )
+				if ( yy_current_state >= 68 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 65 );
+		while ( yy_base[yy_current_state] != 102 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -876,369 +885,282 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case YY_STATE_EOF(INITIAL):
-#line 132 "microc3.flex"
-{ return END_OF_FILE; }
+case YY_STATE_EOF(COMMENT):
+#line 131 "microc.flex"
+{ return TK_END_OF_FILE; }
 	YY_BREAK
-/* --- Espacos em branco e quebras de linha ---------------------------- */ 
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 135 "microc3.flex"
-{ linha_atual++; } 
+#line 133 "microc.flex"
+{ linha_atual++; coluna_atual=1;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 136 "microc3.flex"
-{ /* ignora espacos em branco */ } 
+#line 134 "microc.flex"
+{ /* ignora espacos em branco */ coluna_atual+=1;}
 	YY_BREAK
-/* --- Comentarios ------------------------------------------------------ 
-   * Estes ja estao implementados como exemplo de uso de estados (%x) e 
-   * de tratamento de erro via EOF dentro de um estado especial. */ 
 case 3:
 YY_RULE_SETUP
-#line 141 "microc3.flex"
-{ /* comentario de linha: ignora ate o fim da linha */ } 
+#line 136 "microc.flex"
+{ /* comentario de linha: ignora ate o fim da linha */ }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 143 "microc3.flex"
-{ BEGIN(COMMENT); } 
+#line 138 "microc.flex"
+{ BEGIN(COMMENT); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 144 "microc3.flex"
-{ BEGIN(INITIAL); } 
+#line 139 "microc.flex"
+{ BEGIN(INITIAL); }
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 145 "microc3.flex"
-{ linha_atual++; } 
+#line 140 "microc.flex"
+{ linha_atual++; }
 	YY_BREAK
-case YY_STATE_EOF(COMMENT):
-#line 146 "microc3.flex"
-{ 
-                        microc_yylval.error_msg = "EOF em comentario"; 
-                        return UNDEF; 
-                    } 
+#line 141 "microc.flex"
+{
+                        microc_yylval.error_msg = "EOF em comentario";
+                        return TK_UNDEF;
+                    }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 150 "microc3.flex"
-{ /* consome qualquer outro caractere dentro do comentario */ } 
+#line 145 "microc.flex"
+{ /* consome qualquer outro caractere dentro do comentario */ }
 	YY_BREAK
-/* Fechamento de comentario sem abertura correspondente. */ 
 case 8:
 YY_RULE_SETUP
-#line 153 "microc3.flex"
-{ 
-                        microc_yylval.error_msg = "Comentario nao iniciado"; 
-                        return UNDEF; 
-                    } 
+#line 147 "microc.flex"
+{
+                        microc_yylval.error_msg = "Comentario nao iniciado";
+                        return TK_UNDEF;
+                    }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 158 "microc3.flex"
-{ 
-    if (strcmp(yytext, "if")==0){ 
-        ultimo_token = IF; 
-        return IF; 
-    } 
+#line 152 "microc.flex"
+{
+    if (strcmp(yytext, "if")==0){
+        return TK_IF;
+    }
+    if (strcmp(yytext, "main")==0){
+        return TK_MAIN;
+    }
+    if (strcmp(yytext, "int")==0){
+        return TK_INT;
+    }
+    if (strcmp(yytext, "else")==0){
+        return TK_ELSE;
+    }
+    if (strcmp(yytext, "for")==0){
+        return TK_FOR;
+    }
+    if (strcmp(yytext, "return")==0){
+        return TK_RETURN;
+    }
+    if (strcmp(yytext, "char")==0){
+        return TK_CHAR;
+    }
+    if (strcmp(yytext, "print")==0){
+        return TK_PRINT;
+    }
 
-    if (strcmp(yytext, "main")==0){ 
-        ultimo_token = MAIN; 
-        return MAIN; 
-    } 
- 
-    if (strcmp(yytext, "int")==0){ 
-        ultimo_token = INT; 
-        return INT; 
-    } 
- 
-    if (strcmp(yytext, "else")==0){ 
-        ultimo_token = ELSE; 
-        return ELSE; 
-    } 
- 
-    if (strcmp(yytext, "for")==0){ 
-        ultimo_token = FOR; 
-        return FOR; 
-    } 
- 
-    if (strcmp(yytext, "return")==0){ 
-        ultimo_token = RETURN; 
-        return RETURN; 
-    } 
- 
-    if (strcmp(yytext, "char")==0){ 
-        ultimo_token = CHAR; 
-        return CHAR; 
-    } 
- 
-    if (strcmp(yytext, "print")==0){ 
-        ultimo_token = PRINT; 
-        return PRINT; 
-    } 
- 
-    guarda_lexema(); 
-    ultimo_token = ID; 
-    return ID; 
-} 
+    guarda_lexema();
+    return TK_ID;
+}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 205 "microc3.flex"
-{ 
-    if (pode_ser_sinal()) { 
-        guarda_lexema(); 
-        ultimo_token = INTEGERCONST; 
-        return INTEGERCONST; 
-    } else { 
-        yyless(1);  /* faz com que o flex devolva o que foi consumido de maneira "errada", nesse caso um numero colado ao sinal de - por exemplo, e trate-os separadamente partindo do primeiro digito */ 
-        ultimo_token = MINUS; 
-        return MINUS; 
-    } 
-} 
+#line 182 "microc.flex"
+{
+    guarda_lexema();
+    return TK_UNDEF;
+}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 217 "microc3.flex"
-{ 
-                        guarda_lexema(); 
-                        ultimo_token = INTEGERCONST; 
-                        return INTEGERCONST; 
-                    } 
+#line 188 "microc.flex"
+{
+    guarda_lexema();
+    return TK_INTEGERCONST;
+}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 224 "microc3.flex"
-{ 
-    guarda_lexema(); 
-    ultimo_token = CHARCONST; 
-    return CHARCONST; 
-} 
+#line 193 "microc.flex"
+{
+    guarda_lexema();
+    return TK_INTEGERCONST;
+}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 230 "microc3.flex"
-{ 
-    microc_yylval.error_msg = "Char constante nao terminada";
-    return UNDEF; 
-} 
+#line 198 "microc.flex"
+{
+
+    guarda_lexema();
+    return TK_CHARCONST;
+}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 238 "microc3.flex"
+#line 204 "microc.flex"
 {
-    int caractere;
-    int posicao = 0;
-    int erro = 0;
-
-    while (1){
-        caractere = input();
-
-        if (caractere == '"'){
-            lexema[posicao] = '\0';
-            microc_yylval.symbol = strdup(lexema);
-            return STRINGCONST;
-        }
-        else if (caractere == EOF){
-            erro = 1;
-            break;
-        }
-        else if (caractere == '\n'){
-            erro = 2;
-            break;
-        }
-        else if (caractere == '\0'){
-            erro = 3;
-            break;
-        }
-        else if (caractere == '\\'){
-            caractere = input();
-
-            if (caractere == 'n'){
-                lexema[posicao] = '\n';
-                posicao++;
-            }
-            else if (caractere == 't'){
-                lexema[posicao] = '\t';
-                posicao++;
-            }
-            else if (caractere == '\\'){
-                lexema[posicao] = '\\';
-                posicao++;
-            }
-            else if (caractere == '"'){
-                lexema[posicao] = '"';
-                posicao++;
-            }
-            else if (caractere == '0'){
-                lexema[posicao] = '\0';
-                posicao++;
-            }
-            else{
-                lexema[posicao] = '\\';
-                posicao++;
-                lexema[posicao] = caractere;
-                posicao++;
-            }
-        }
-        else{
-            lexema[posicao] = caractere;
-            posicao++;
-        }
-    }
-
-    if (erro == 1){
-        microc_yylval.error_msg = "EOF em string";
-        return UNDEF;
-    }
-    else if (erro == 2){
-        microc_yylval.error_msg = "String nao terminada";
-        return UNDEF;
-    }
-    else if (erro == 3){
-        microc_yylval.error_msg = "String contem caractere nulo";
-        return UNDEF;
-    }
+    linha_atual++;
+    return TK_UNDEF;
 }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 314 "microc3.flex"
-{ ultimo_token = EQ; return EQ; } 
+#line 209 "microc.flex"
+{
+    guarda_lexema();
+    return TK_STRINGCONST;
+}
 	YY_BREAK
 case 16:
+/* rule 16 can match eol */
 YY_RULE_SETUP
-#line 315 "microc3.flex"
-{ ultimo_token = ASSIGN; return ASSIGN; } 
+#line 214 "microc.flex"
+{
+    linha_atual++;
+    return TK_UNDEF;
+}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 317 "microc3.flex"
-{ ultimo_token = NEQ; return NEQ; } 
+#line 219 "microc.flex"
+{ return TK_EQ; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 318 "microc3.flex"
-{ ultimo_token = NOT; return NOT; } 
+#line 220 "microc.flex"
+{ return TK_ASSIGN; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 320 "microc3.flex"
-{ ultimo_token = LEQ; return LEQ; } 
+#line 221 "microc.flex"
+{return TK_NEQ;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 321 "microc3.flex"
-{ ultimo_token = LT; return LT; } 
+#line 222 "microc.flex"
+{return TK_NOT;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 323 "microc3.flex"
-{ ultimo_token = GEQ; return GEQ; } 
+#line 223 "microc.flex"
+{return TK_LEQ;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 324 "microc3.flex"
-{ ultimo_token = GT; return GT; } 
+#line 224 "microc.flex"
+{return TK_LT;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 326 "microc3.flex"
-{ ultimo_token = AND; return AND; } 
+#line 225 "microc.flex"
+{return TK_GEQ;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 328 "microc3.flex"
-{ ultimo_token = OR; return OR; } 
+#line 226 "microc.flex"
+{return TK_GT;}
 	YY_BREAK
-/* --- Operadores aritmeticos e simbolos de pontuacao (ja prontos) ------ */ 
 case 25:
 YY_RULE_SETUP
-#line 332 "microc3.flex"
-{ ultimo_token = PLUS; return PLUS; } 
+#line 227 "microc.flex"
+{return TK_AND;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 334 "microc3.flex"
-{  
-                        ultimo_token = MINUS; 
-                        return MINUS;  
-                    } 
+#line 228 "microc.flex"
+{return TK_OR;}
 	YY_BREAK
+/* --- Operadores aritmeticos e simbolos de pontuacao (ja prontos) ------ */
 case 27:
 YY_RULE_SETUP
-#line 339 "microc3.flex"
-{ ultimo_token = MUL; return MUL; } 
+#line 231 "microc.flex"
+{ return TK_PLUS; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 340 "microc3.flex"
-{ ultimo_token = DIV; return DIV; } 
+#line 232 "microc.flex"
+{ return TK_MINUS; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 341 "microc3.flex"
-{ ultimo_token = MOD; return MOD; } 
+#line 233 "microc.flex"
+{ return TK_MUL; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 342 "microc3.flex"
-{ ultimo_token = SEMICOLON; return SEMICOLON; } 
+#line 234 "microc.flex"
+{ return TK_DIV; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 343 "microc3.flex"
-{ ultimo_token = COMMA; return COMMA; } 
+#line 235 "microc.flex"
+{ return TK_MOD; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 344 "microc3.flex"
-{ ultimo_token = LPAREN; return LPAREN; } 
+#line 236 "microc.flex"
+{ return TK_SEMICOLON; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 345 "microc3.flex"
-{ ultimo_token = RPAREN; return RPAREN; } 
+#line 237 "microc.flex"
+{ return TK_COMMA; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 346 "microc3.flex"
-{ ultimo_token = LBRACE; return LBRACE; } 
+#line 238 "microc.flex"
+{ return TK_LPAREN; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 347 "microc3.flex"
-{ ultimo_token = RBRACE; return RBRACE; } 
+#line 239 "microc.flex"
+{ return TK_RPAREN; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 348 "microc3.flex"
-{ ultimo_token = LBRACKET; return LBRACKET; } 
+#line 240 "microc.flex"
+{ return TK_LBRACE; }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 349 "microc3.flex"
-{ ultimo_token = RBRACKET; return RBRACKET; } 
+#line 241 "microc.flex"
+{ return TK_RBRACE; }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 352 "microc3.flex"
-{ 
-                        microc_yylval.error_msg = strdup(yytext); 
-                        return UNDEF; 
-                    } 
+#line 242 "microc.flex"
+{ return TK_LBRACKET; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 357 "microc3.flex"
+#line 243 "microc.flex"
+{ return TK_RBRACKET; }
+	YY_BREAK
+case 40:
+YY_RULE_SETUP
+#line 245 "microc.flex"
+{
+                        microc_yylval.error_msg = strdup(yytext);
+                        return TK_UNDEF;
+                    }
+	YY_BREAK
+case 41:
+YY_RULE_SETUP
+#line 250 "microc.flex"
 ECHO;
 	YY_BREAK
-#line 1239 "lex.yy.c"
-case YY_STATE_EOF(STRING):
-	yyterminate();
+#line 1163 "lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1533,7 +1455,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 57 )
+			if ( yy_current_state >= 68 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1561,11 +1483,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 57 )
+		if ( yy_current_state >= 68 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 56);
+	yy_is_jam = (yy_current_state == 67);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -2241,48 +2163,51 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 357 "microc3.flex"
+#line 250 "microc.flex"
 
- 
-/* ----------------------------------------------------------------------- 
- * 4. SUB-ROTINAS DO USUARIO 
- * ------------------------------------------------------------------- */ 
 
-int yywrap(void) { 
-    return 1; 
-} 
- 
-int main(int argc, char **argv) { 
-    if (argc < 2) { 
-        fprintf(stderr, "Uso: %s <arquivo.mc>\n", argv[0]); 
-        return 1; 
-    } 
- 
-    FILE *arquivo_fonte = fopen(argv[1], "r"); 
-    if (!arquivo_fonte) { 
-        fprintf(stderr, "Erro: nao foi possivel abrir o arquivo '%s'\n", argv[1]); 
-        return 1; 
-    } 
- 
-    yyin = arquivo_fonte; 
- 
-    int tipo; 
-    while ((tipo = yylex()) != END_OF_FILE) { 
-        if (tipo == UNDEF) { 
-            fprintf(stderr, "ERRO LEXICO (linha %d): %s\n", 
-                    linha_atual, microc_yylval.error_msg); 
-            continue; 
-        } 
- 
+/* -----------------------------------------------------------------------
+ * 4. SUB-ROTINAS DO USUARIO
+ * ------------------------------------------------------------------- */
 
-        if (tipo == STRINGCONST || tipo == ID || tipo == INTEGERCONST || tipo == CHARCONST){
-            printf("Token: tipo = %-13s lexema = '%s'  linha = %d\n", nome_token[tipo], microc_yylval.symbol, linha_atual);
+/* yywrap: informa ao flex que, ao atingir o EOF, a leitura deve
+ * simplesmente parar (nao ha um proximo arquivo a processar). */
+int yywrap(void) {
+    return 1;
+}
+
+/* main() de teste: le o arquivo passado como argumento e imprime, para
+ * cada token reconhecido, seu tipo, lexema e linha -- no mesmo espirito
+ * do utilitario "lexer" mencionado no enunciado (Secao 6). Este main()
+ * e apenas uma ferramenta de depuracao para voce testar seu scanner de
+ * forma isolada; ele NAO faz parte da interface formal entre o scanner
+ * e o parser (isso sera tratado nos trabalhos seguintes). */
+int main(int argc, char **argv) {
+    if (argc < 2) {
+        fprintf(stderr, "Uso: %s <arquivo.mc>\n", argv[0]);
+        return 1;
+    }
+
+    FILE *arquivo_fonte = fopen(argv[1], "r");
+    if (!arquivo_fonte) {
+        fprintf(stderr, "Erro: nao foi possivel abrir o arquivo '%s'\n", argv[1]);
+        return 1;
+    }
+    yyin = arquivo_fonte;
+
+    int tipo;
+    while ((tipo = yylex()) != TK_END_OF_FILE) {
+        if (tipo == TK_UNDEF) {
+            fprintf(stderr, "(ERRO LEXICO (linha %d coluna %d): %s) \n",
+                    linha_atual,coluna_atual, microc_yylval.error_msg);
+            continue;
         }
-        else{
-            printf("Token: tipo = %-13s lexema = '%s'  linha = %d\n", nome_token[tipo], yytext, linha_atual);
-        }
-    } 
- 
-    fclose(arquivo_fonte); 
-    return 0; 
+        printf("Token: tipo = %-13s lexema = '%s'  linha = %d\n",
+                nome_token[tipo], yytext, linha_atual);
+    }
+    printf("Token: tipo = %-13s lexema = '%s'  linha = %d\n",
+               nome_token[tipo], yytext, linha_atual);
+
+    fclose(arquivo_fonte);
+    return 0;
 }
