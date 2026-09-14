@@ -65,6 +65,42 @@ static void guarda_lexema(void) {
     microc_yylval.symbol = strdup(yytext);
 }
 
+//em andamento identificar caractere escape e colocar ASC no lexema
+void substituirSeqEscape() {
+    char *strOrChar[]=strdup(yytext);
+    char ant, atual, charInserir;
+    
+    ant = *strOrChar;
+    strOrChar++;
+    while(*strOrChar != '/0') {
+        atual=strOrChar;
+        if(ant = '\') {
+            switch(atual) {
+                case 't':
+                    charInserir = '\t';
+                    break;
+
+                case 'n':
+                    charInserir = '\n';
+                    break;
+
+                case '\':
+                    charInserir = '\\';
+                    break;
+                case '"':
+                    charInserir = '\\';
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+    }
+
+
+    
+}
 %}
 
 /* -----------------------------------------------------------------------
@@ -152,6 +188,7 @@ ALFANUM     [a-zA-Z0-9_]
 }
 
 \'([^'\\\n]|\\.)\' {
+
     guarda_lexema();
     return TK_CHARCONST;
 }
