@@ -1,1 +1,3 @@
-(TK_ID,x) (TK_ASSIGN,=) (TK_INTEGERCONST,10) (TK_END_OF_FILE,) 
+Token: tipo = ID            lexema = 'x'  linha = 1
+Token: tipo = ASSIGN        lexema = '='  linha = 1
+Token: tipo = INTEGERCONST  lexema = '10'  linha = 1
