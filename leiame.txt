@@ -1,0 +1,25 @@
+===============================================================
+ Compiladores I - FACOM
+ Trabalho Pratico 1 - Analise Lexica para a linguagem Micro C
+===============================================================
+
+aluno: Diogo Bispo Da Silva
+aluno: Ricardo Yudi Saito Da Silva
+
+Por que o tratamento de palavras reservadas é feito depois de reconhecer o padrão de identificador?
+R: Porque ambas tem a mesma expressão regular e se fosse feitas por última seriam identificadas como ID.
+
+O que é o token TK_EOF e por que ele é necessário?
+R: Para que o analisador léxico saiba quando para de ler o arquivo e para casos de erro léxico não encerrar de forma imediata e informar uma mensagem.
+
+Para a entrada x = 10 // comentário seguida de y = 20;, qual é a sequência completa de tokens que um scanner correto deveria gerar?
+R:(TK_ID,x) (TK_ASSIGN,=) (TK_INTEGERCONST,10) (TK_END_OF_FILE,) 
+
+Lookahead de tokens foi feito usando a própria propriedade do flex que as regras mais acima tem maior precedência,
+logo, colocando a maior sequência primeiro, por exemplo, "==" antes de "=".
+Posicao foi controlada por variáveis que eram atualizadas conforme fosse identificado uma quebra de linha para contagem de linha
+e para coluna, reseta o valor a cada nova linha e incrementa a cada novo token lido.
+Para comentario de uma linha foi usado uma expressão regular para identificar barra dupla e ignora o conteúdo da linha.
+Para comentário de múltiplas linhas também foi utilizado regex para identificar o token "/*" e entrar em um estado COMMENT
+para restringir as regras, incrementar linhas com quebra de linha,
+e sair do estado COMMENT quando encontrar "*/". Caso o comentário não seja fechado ou iniciado o compilador emite um erro léxico.

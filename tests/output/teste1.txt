@@ -1,0 +1,1 @@
+(ERRO LEXICO (linha 1 coluna 1): (null)) (TK_ASSIGN,=) (TK_MINUS,-) (TK_INTEGERCONST,3) (TK_SEMICOLON,;) (TK_INT,int) (TK_ID,soma) (TK_ASSIGN,=) (TK_ID,a) (TK_PLUS,+) (TK_ID,b) (TK_MUL,*) (TK_INTEGERCONST,2) (TK_SEMICOLON,;) (TK_END_OF_FILE,) 
