@@ -1,1 +1,15 @@
-(TK_ID,soma) (TK_ASSIGN,=) (TK_ID,a) (TK_PLUS,+) (TK_ID,b) (TK_MUL,*) (TK_INTEGERCONST,2) (TK_SEMICOLON,;) (TK_ID,x) (TK_ASSIGN,=) (TK_INTEGERCONST,10) (TK_ID,y) (TK_ASSIGN,=) (TK_INTEGERCONST,20) (TK_SEMICOLON,;) (TK_END_OF_FILE,) 
+Token: tipo = ID            lexema = 'soma'  linha = 1
+Token: tipo = ASSIGN        lexema = '='  linha = 1
+Token: tipo = ID            lexema = 'a'  linha = 1
+Token: tipo = PLUS          lexema = '+'  linha = 1
+Token: tipo = ID            lexema = 'b'  linha = 1
+Token: tipo = MUL           lexema = '*'  linha = 1
+Token: tipo = INTEGERCONST  lexema = '2'  linha = 1
+Token: tipo = SEMICOLON     lexema = ';'  linha = 1
+Token: tipo = ID            lexema = 'x'  linha = 2
+Token: tipo = ASSIGN        lexema = '='  linha = 2
+Token: tipo = INTEGERCONST  lexema = '10'  linha = 2
+Token: tipo = ID            lexema = 'y'  linha = 3
+Token: tipo = ASSIGN        lexema = '='  linha = 3
+Token: tipo = INTEGERCONST  lexema = '20'  linha = 3
+Token: tipo = SEMICOLON     lexema = ';'  linha = 3

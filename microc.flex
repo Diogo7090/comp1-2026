@@ -67,37 +67,31 @@ static void guarda_lexema(void) {
 
 //em andamento identificar caractere escape e colocar ASC no lexema
 void substituirSeqEscape() {
-    char *strOrChar[]=strdup(yytext);
-    char ant, atual, charInserir;
-    
-    ant = *strOrChar;
-    strOrChar++;
-    while(*strOrChar != '/0') {
-        atual=strOrChar;
-        if(ant = '\') {
-            switch(atual) {
+    char *copia=strdup(yytext);
+    char *atual, escreve;
+
+    atual = yytext;
+
+    while(*atual != '\0') {
+        if(*atual == '\\') {
+            char proximo = *(atual+1);
+
+            switch(proximo) {
                 case 't':
-                    charInserir = '\t';
+                    escreve = '\t';
                     break;
-
                 case 'n':
-                    charInserir = '\n';
+                    escreve = '\n';
                     break;
-
-                case '\':
-                    charInserir = '\\';
+                case '\\':
+                    escreve = '\\';
                     break;
                 case '"':
-                    charInserir = '\\';
-                    break;
-
-                default:
+                    escreve = '"';
                     break;
             }
         }
-
     }
-
 
     
 }

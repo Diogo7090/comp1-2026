@@ -1,1 +1,37 @@
-(ERRO LEXICO (linha 1 coluna 1): (null)) (ERRO LEXICO (linha 4 coluna 3): (null)) (ERRO LEXICO (linha 5 coluna 3): (null)) (ERRO LEXICO (linha 8 coluna 1): (null)) (ERRO LEXICO (linha 10 coluna 1): (null)) (ERRO LEXICO (linha 11 coluna 1): @) (ERRO LEXICO (linha 11 coluna 1): #) (TK_ASSIGN,=) (TK_INTEGERCONST,10) (TK_ID,y) (TK_ASSIGN,=) (TK_INTEGERCONST,20) (TK_SEMICOLON,;) (TK_ID,y) (TK_ASSIGN,=) (TK_ID,u) (TK_ASSIGN,=) (TK_CHARCONST,'\'') (TK_SEMICOLON,;) (TK_ID,a) (TK_ASSIGN,=) (TK_ID,y) (TK_ASSIGN,=) (TK_SEMICOLON,;) (TK_STRINGCONST,"") (TK_END_OF_FILE,) 
+ERRO LEXICO (linha 3): Char constante nao terminada
+ERRO LEXICO (linha 3): Char constante nao terminada
+ERRO LEXICO (linha 4): Char constante nao terminada
+ERRO LEXICO (linha 5): Char constante nao terminada
+ERRO LEXICO (linha 6): Char constante nao terminada
+ERRO LEXICO (linha 7): @
+ERRO LEXICO (linha 7): #
+ERRO LEXICO (linha 8): Char constante nao terminada
+ERRO LEXICO (linha 8): Char constante nao terminada
+Token: tipo = INTEGERCONST  lexema = '1'  linha = 1
+Token: tipo = ID            lexema = 'x'  linha = 1
+Token: tipo = ASSIGN        lexema = '='  linha = 1
+Token: tipo = INTEGERCONST  lexema = '10'  linha = 1
+Token: tipo = ID            lexema = 'y'  linha = 2
+Token: tipo = ASSIGN        lexema = '='  linha = 2
+Token: tipo = INTEGERCONST  lexema = '20'  linha = 2
+Token: tipo = SEMICOLON     lexema = ';'  linha = 2
+Token: tipo = ID            lexema = 'y'  linha = 3
+Token: tipo = ASSIGN        lexema = '='  linha = 3
+Token: tipo = ID            lexema = 'u'  linha = 4
+Token: tipo = ASSIGN        lexema = '='  linha = 4
+Token: tipo = CHARCONST     lexema = ''\''  linha = 4
+Token: tipo = ID            lexema = 'a'  linha = 5
+Token: tipo = ASSIGN        lexema = '='  linha = 5
+Token: tipo = ID            lexema = 'y'  linha = 6
+Token: tipo = ASSIGN        lexema = '='  linha = 6
+Token: tipo = SEMICOLON     lexema = ';'  linha = 7
+Token: tipo = STRINGCONST   lexema = ''  linha = 7
+Token: tipo = CHAR          lexema = 'char'  linha = 8
+Token: tipo = ID            lexema = 'g'  linha = 8
+Token: tipo = ASSIGN        lexema = '='  linha = 8
+Token: tipo = ID            lexema = 'printf'  linha = 9
+Token: tipo = LPAREN        lexema = '('  linha = 9
+Token: tipo = STRINGCONST   lexema = '
+ teste'  linha = 9
+Token: tipo = RPAREN        lexema = ')'  linha = 9
+Token: tipo = SEMICOLON     lexema = ';'  linha = 9

@@ -28,3 +28,19 @@ Trecho : processamento de sequências de escape em constantes de string
 Finalidade : perguntei se seria possível usar uma subrotina no Flex com expressão regular e lookahead para identificar caracteres de escape
 
 O que fiz : entendi que o processamento pode ser feito em uma subrotina C percorrendo yytext, sem depender de lookahead de regex
+
+Ferramenta : ChatGPT ( GPT -5.6 Luna )
+
+Trecho : armazenamento do valor convertido de STRINGCONST e CHARCONST
+
+Finalidade : perguntei como armazenar o lexema depois de substituir as sequências de escape sem modificar yytext
+
+O que fiz : entendi que yytext deve ser usado como entrada da conversão e que o resultado deve ser construído em outra string/buffer, que então será armazenada como Symbol
+
+Ferramenta : ChatGPT ( GPT -5.6 Luna )
+
+Trecho : rotina substituirSeqEscape para tratamento de sequências de escape
+
+Finalidade : pedi ajuda para identificar a causa de um problema de realce sintático no trecho case '"' e para revisar possíveis erros no código que escrevi
+
+O que fiz : usei a explicação para identificar que case '"' e charInserir = '"' são válidos em C e que havia um problema no uso de ponteiro e char na rotina

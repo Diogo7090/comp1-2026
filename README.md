@@ -44,8 +44,8 @@ comp1-2026/
 
 - [x] Reconhecimento das palavras reservadas: `main`, `if`, `else`, `for`, `return`, `int`, `char`, `print` (atualmente tratadas como `ID`)
 - [ ] Constantes de caractere (`CHARCONST`) e de string (`STRINGCONST`), com conversão de sequências de escape (`\n`, `\t`, `\\`, `\"`, `\0`) e tratamento dos erros correspondentes
-- [ ] Operadores relacionais e lógicos com prefixo compartilhado: `!=`, `!`, `<=`, `<`, `>=`, `>`, `&&`, `||` (seguindo o exemplo já implementado para `==` e `=`)
-- [ ] Tratamento de constantes inteiras negativas, diferenciando-as do operador de subtração
+- [x] Operadores relacionais e lógicos com prefixo compartilhado: `!=`, `!`, `<=`, `<`, `>=`, `>`, `&&`, `||` (seguindo o exemplo já implementado para `==` e `=`)
+- [x] Tratamento de constantes inteiras negativas, diferenciando-as do operador de subtração
 - [ ] Ampliação dos arquivos de teste, cobrindo o maior número possível de tokens e de erros léxicos
 - [ ] Especificação léxica completa (toda entrada deve corresponder a alguma regra, inclusive a regra de erro no final do arquivo)
 - [ ] Remoção de instruções de depuração (`printf` de teste etc.) antes da entrega

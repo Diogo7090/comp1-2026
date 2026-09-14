@@ -1,0 +1,70 @@
+ERRO LEXICO (linha 6): String nao terminada
+ERRO LEXICO (linha 6): String nao terminada
+ERRO LEXICO (linha 7): String nao terminada
+ERRO LEXICO (linha 9): String nao terminada
+ERRO LEXICO (linha 9): Char constante nao terminada
+ERRO LEXICO (linha 10): Char constante nao terminada
+Token: tipo = INT           lexema = 'int'  linha = 1
+Token: tipo = MAIN          lexema = 'main'  linha = 1
+Token: tipo = LPAREN        lexema = '('  linha = 1
+Token: tipo = RPAREN        lexema = ')'  linha = 1
+Token: tipo = LBRACE        lexema = '{'  linha = 1
+Token: tipo = INT           lexema = 'int'  linha = 2
+Token: tipo = ID            lexema = 'i'  linha = 2
+Token: tipo = ASSIGN        lexema = '='  linha = 2
+Token: tipo = INTEGERCONST  lexema = '-9'  linha = 2
+Token: tipo = SEMICOLON     lexema = ';'  linha = 2
+Token: tipo = INT           lexema = 'int'  linha = 3
+Token: tipo = ID            lexema = 'a'  linha = 3
+Token: tipo = ASSIGN        lexema = '='  linha = 3
+Token: tipo = INTEGERCONST  lexema = '-90332'  linha = 3
+Token: tipo = SEMICOLON     lexema = ';'  linha = 3
+Token: tipo = CHAR          lexema = 'char'  linha = 4
+Token: tipo = ID            lexema = 'g'  linha = 4
+Token: tipo = LBRACKET      lexema = '['  linha = 4
+Token: tipo = RBRACKET      lexema = ']'  linha = 4
+Token: tipo = ASSIGN        lexema = '='  linha = 4
+Token: tipo = STRINGCONST   lexema = 'teste 
+'  linha = 4
+Token: tipo = SEMICOLON     lexema = ';'  linha = 4
+Token: tipo = CHAR          lexema = 'char'  linha = 5
+Token: tipo = ID            lexema = 'g'  linha = 5
+Token: tipo = LBRACKET      lexema = '['  linha = 5
+Token: tipo = RBRACKET      lexema = ']'  linha = 5
+Token: tipo = ASSIGN        lexema = '='  linha = 5
+Token: tipo = STRINGCONST   lexema = 'teste 	 \' \'  linha = 5
+Token: tipo = SEMICOLON     lexema = ';'  linha = 5
+Token: tipo = CHAR          lexema = 'char'  linha = 6
+Token: tipo = ID            lexema = 'f'  linha = 6
+Token: tipo = LBRACKET      lexema = '['  linha = 6
+Token: tipo = RBRACKET      lexema = ']'  linha = 6
+Token: tipo = ASSIGN        lexema = '='  linha = 6
+Token: tipo = CHAR          lexema = 'char'  linha = 7
+Token: tipo = ID            lexema = 'h'  linha = 7
+Token: tipo = LBRACKET      lexema = '['  linha = 7
+Token: tipo = RBRACKET      lexema = ']'  linha = 7
+Token: tipo = ASSIGN        lexema = '='  linha = 7
+Token: tipo = CHAR          lexema = 'char'  linha = 9
+Token: tipo = ID            lexema = 'i'  linha = 9
+Token: tipo = ASSIGN        lexema = '='  linha = 9
+Token: tipo = INT           lexema = 'int'  linha = 11
+Token: tipo = ID            lexema = 'b'  linha = 11
+Token: tipo = ASSIGN        lexema = '='  linha = 11
+Token: tipo = MINUS         lexema = '-'  linha = 11
+Token: tipo = ID            lexema = 'a'  linha = 11
+Token: tipo = MINUS         lexema = '-'  linha = 11
+Token: tipo = INTEGERCONST  lexema = '9009'  linha = 11
+Token: tipo = MINUS         lexema = '-'  linha = 11
+Token: tipo = INTEGERCONST  lexema = '9090'  linha = 11
+Token: tipo = SEMICOLON     lexema = ';'  linha = 11
+Token: tipo = INT           lexema = 'int'  linha = 12
+Token: tipo = ID            lexema = 'c'  linha = 12
+Token: tipo = ASSIGN        lexema = '='  linha = 12
+Token: tipo = ID            lexema = 'i'  linha = 12
+Token: tipo = MINUS         lexema = '-'  linha = 12
+Token: tipo = INTEGERCONST  lexema = '8'  linha = 12
+Token: tipo = SEMICOLON     lexema = ';'  linha = 12
+Token: tipo = RETURN        lexema = 'return'  linha = 14
+Token: tipo = INTEGERCONST  lexema = '0'  linha = 14
+Token: tipo = SEMICOLON     lexema = ';'  linha = 14
+Token: tipo = RBRACE        lexema = '}'  linha = 15
