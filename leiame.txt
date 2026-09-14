@@ -6,20 +6,103 @@
 aluno: Diogo Bispo Da Silva
 aluno: Ricardo Yudi Saito Da Silva
 
-Por que o tratamento de palavras reservadas é feito depois de reconhecer o padrão de identificador?
-R: Porque ambas tem a mesma expressão regular e se fosse feitas por última seriam identificadas como ID.
+===============================================================
+ Compiladores I - FACOM
+ Trabalho Pratico 1 - Analise Lexica para a linguagem Micro C
+===============================================================
 
-O que é o token TK_EOF e por que ele é necessário?
-R: Para que o analisador léxico saiba quando para de ler o arquivo e para casos de erro léxico não encerrar de forma imediata e informar uma mensagem.
+aluno: <preencha aqui seu numero de matricula>
+aluno: <preencha aqui o numero de matricula do(a) colega, se houver dupla>
 
-Para a entrada x = 10 // comentário seguida de y = 20;, qual é a sequência completa de tokens que um scanner correto deveria gerar?
-R:(TK_ID,x) (TK_ASSIGN,=) (TK_INTEGERCONST,10) (TK_END_OF_FILE,) 
 
-Lookahead de tokens foi feito usando a própria propriedade do flex que as regras mais acima tem maior precedência,
-logo, colocando a maior sequência primeiro, por exemplo, "==" antes de "=".
-Posicao foi controlada por variáveis que eram atualizadas conforme fosse identificado uma quebra de linha para contagem de linha
-e para coluna, reseta o valor a cada nova linha e incrementa a cada novo token lido.
-Para comentario de uma linha foi usado uma expressão regular para identificar barra dupla e ignora o conteúdo da linha.
-Para comentário de múltiplas linhas também foi utilizado regex para identificar o token "/*" e entrar em um estado COMMENT
-para restringir as regras, incrementar linhas com quebra de linha,
-e sair do estado COMMENT quando encontrar "*/". Caso o comentário não seja fechado ou iniciado o compilador emite um erro léxico.
+---8<------8<------8<------8<---cut here---8<------8<------8<------8<---
+
+INSTRUCOES (remova esta secao, do inicio do arquivo ate esta linha
+INCLUSIVE, antes de entregar o trabalho)
+
+Conteudo deste pacote
+----------------------
+  microc.flex  - esqueleto do analisador lexico (arquivo principal a
+                 ser editado por voce). Contem a definicao dos tokens
+                 de Micro C, algumas regras ja implementadas como
+                 exemplo, e varios trechos marcados com "TODO(aluno)"
+                 que voce deve completar.
+
+  test.mc      - programa de exemplo em Micro C, usado como entrada de
+                 teste para o scanner. Voce deve ampliar este arquivo
+                 (ou criar outros) com casos de teste proprios que
+                 exercitem bem o seu scanner, incluindo casos de erro
+                 lexico.
+
+  README       - este arquivo.
+
+
+Compilando o scanner
+----------------------
+No diretorio do projeto, execute:
+
+    flex microc.flex
+    gcc lex.yy.c -o lexer
+
+O primeiro comando gera o arquivo lex.yy.c a partir das regras
+definidas em microc.flex. O segundo compila esse codigo gerado,
+produzindo o executavel "lexer".
+
+(Caso o professor disponibilize um Makefile junto com uma versao
+posterior deste pacote, os mesmos passos poderao ser executados com
+"make lexer".)
+
+
+Executando o scanner
+----------------------
+    ./lexer test.mc
+
+O programa ira imprimir, para cada token reconhecido, seu tipo, o
+lexema correspondente e a linha em que foi encontrado, por exemplo:
+
+    Token: tipo = INT           lexema = 'int'  linha = 1
+    Token: tipo = ID            lexema = 'x'    linha = 1
+    Token: tipo = ASSIGN        lexema = '='    linha = 1
+    Token: tipo = INTEGERCONST  lexema = '10'   linha = 1
+    Token: tipo = SEMICOLON     lexema = ';'    linha = 1
+
+Erros lexicos (token UNDEF) sao impressos na saida de erro padrao
+(stderr), no formato:
+
+    ERRO LEXICO (linha N): <mensagem de erro>
+
+
+O que voce precisa fazer
+----------------------
+1. Complete, em microc.flex, o reconhecimento das palavras reservadas
+   (main, if, else, for, return, int, char, print), atualmente todas
+   tratadas como ID.
+2. Implemente o reconhecimento de constantes de caractere (CHARCONST)
+   e de string (STRINGCONST), incluindo a conversao de sequencias de
+   escape (\n, \t, \\, \", \0) e o tratamento dos erros descritos na
+   Secao 4.1 do enunciado do trabalho.
+3. Complete os operadores relacionais e logicos que compartilham
+   prefixo com outros operadores (!=, !, <=, <, >=, >, &&, ||),
+   seguindo o exemplo ja implementado para "==" e "=".
+4. Trate o caso de constantes inteiras negativas (numeros precedidos
+   de sinal de menos), diferenciando-os do operador de subtracao.
+5. Amplie o arquivo test.mc (ou crie arquivos de teste adicionais) de
+   forma a cobrir o maior numero possivel de tokens e de situacoes de
+   erro lexico previstas no enunciado.
+6. Garanta que sua especificacao lexica esteja completa, isto e, que
+   toda entrada possivel corresponda a alguma regra (mesmo que seja a
+   regra de erro no final do arquivo).
+7. Remova quaisquer instrucoes de depuracao (printf de teste, etc.)
+   antes de entregar.
+
+---8<------8<------8<------8<---cut here---8<------8<------8<------8<---
+
+
+Estrutura da entrega
+----------------------
+Apos remover a secao de instrucoes acima, este README deve conter
+apenas a(s) linha(s) "aluno: <matricula>" no topo do arquivo.
+
+A submissao deve ser feita conforme as instrucoes especificas
+informadas pelo professor no AVA (Moodle), dentro do prazo estabelecido
+no cronograma da disciplina.
