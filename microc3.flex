@@ -77,12 +77,46 @@ int linha_atual = 1;
 TokenType ultimo_token = UNDEF;
 
 char lexema[4000];
- 
-static void guarda_lexema(void) {
-    static tabelaStrings tabela(100,0);
-    tabela.listaString= (char**)malloc(tamanho *sizeof(char *));
 
-    adicionaString(tabela);
+typedef struct {
+    int tamanho;
+    int posicaoOcupada;
+    char **listaString;
+}tabelaStrings;
+
+tabelaStrings tabela;
+
+void adicionaString(tabelaStrings* tab) {
+
+    int existe = 0;
+    
+    if(tab->tamanho == tab->posicaoOcupada) {
+        tab->tamanho = (tab->tamanho)*2;
+        char **novaListaString = realloc(tab->listaString, tab->tamanho * sizeof(char *));
+
+        if(novaListaString == NULL) {
+            return ;
+        }
+        tab->listaString= novaListaString;
+    }
+    
+    for(int i = 0; i < tab->posicaoOcupada; i++) {
+        if(strcmp(yytext,tab->listaString[i]) == 0) {
+            existe=1;
+        }
+    }
+    if(existe == 0) {
+        tab->listaString[tab->posicaoOcupada++]=strdup(yytext);
+    }
+}
+
+char* retornaLexema(int indice, tabelaStrings* tab) {
+    return tab->listaString[indice];
+}
+
+static void guarda_lexema(void) {
+
+    adicionaString(&tabela);
     microc_yylval.symbol = strdup(yytext); 
 } 
  
@@ -109,31 +143,6 @@ static int pode_ser_sinal(void) {
     return 0; 
 } 
 
-typedef struct {
-    int tamanho;
-    int posicaoOcupada;
-    char **listaString;
-}tabelaStrings;
-
-void adicionaString(tabelaStrings* tab) {
-    
-    if(tab->tamanho == tab->posicaoOcupada) {
-        tab->tamanho = (tab->tamanho)*2;
-        char **novaListaString = realloc(tab->listaString, tab->tamanho * sizeof(char *));
-
-        if(novaListaString == NULL) {
-            return 1;
-        }
-        tab->listaString= novaListaString;
-    }
-
-    tab->listaString[tab->posicaoOcupada++]=strdup(yytext);
-
-}
-
-char* retornaLexema(int indice, tabelaStrings* tab) {
-    return tab->listaString[indice];
-}
 
 
 %} 
@@ -397,6 +406,12 @@ int yywrap(void) {
 } 
  
 int main(int argc, char **argv) { 
+    tabela.tamanho=100;
+    tabela.posicaoOcupada=0;
+    tabela.listaString= (char**)malloc(tabela.tamanho *sizeof(char *));
+
+
+
 
     if (argc < 2) { 
         fprintf(stderr, "Uso: %s <arquivo.mc>\n", argv[0]); 
@@ -426,8 +441,9 @@ int main(int argc, char **argv) {
         else{
             printf("Token: tipo = %-13s lexema = '%s'  linha = %d\n", nome_token[tipo], yytext, linha_atual);
         }
+
+
     } 
- 
     fclose(arquivo_fonte); 
     return 0; 
 }
