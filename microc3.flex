@@ -78,7 +78,11 @@ TokenType ultimo_token = UNDEF;
 
 char lexema[4000];
  
-static void guarda_lexema(void) { 
+static void guarda_lexema(void) {
+    static tabelaStrings tabela(100,0);
+    tabela.listaString= (char**)malloc(tamanho *sizeof(char *));
+
+    adicionaString(tabela);
     microc_yylval.symbol = strdup(yytext); 
 } 
  
@@ -393,8 +397,6 @@ int yywrap(void) {
 } 
  
 int main(int argc, char **argv) { 
-    tabelaStrings tabela(100,0);
-    tabela.listaString= (char**)malloc(tamanho *sizeof(char *));
 
     if (argc < 2) { 
         fprintf(stderr, "Uso: %s <arquivo.mc>\n", argv[0]); 
