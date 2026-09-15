@@ -60,3 +60,11 @@ Trecho : funções adicionaString e retornaLexema da tabela de strings
 Finalidade : pedi uma revisão da versão atual para verificar se os acessos por ponteiro e a estrutura das funções estavam corretos
 
 O que fiz : confirmei o uso correto de -> e identifiquei que ainda preciso tratar a falha de realloc e inicializar corretamente a tabela
+
+Ferramenta : ChatGPT ( GPT -5.6 Luna )
+
+Trecho : erros de compilação envolvendo tabelaStrings, adicionaString e guarda_lexema
+
+Finalidade : pedi ajuda para entender as mensagens do GCC ao compilar o scanner gerado pelo Flex
+
+O que fiz : usei a explicação para identificar problemas de ordem das declarações, inicialização de struct em C, passagem de ponteiro para struct, declaração antecipada de função e retorno incompatível com void
