@@ -31,32 +31,32 @@ O que fiz : entendi que o processamento pode ser feito em uma subrotina C percor
 
 Ferramenta : ChatGPT ( GPT -5.6 Luna )
 
-Trecho : armazenamento do valor convertido de STRINGCONST e CHARCONST
+Trecho : Seção 4.1 — Tratamento de Erros
 
-Finalidade : perguntei como armazenar o lexema depois de substituir as sequências de escape sem modificar yytext
+Finalidade : pedi uma explicação sobre o que cada item do tratamento de erros do scanner exige e como o scanner deve reagir a cada situação
 
-O que fiz : entendi que yytext deve ser usado como entrada da conversão e que o resultado deve ser construído em outra string/buffer, que então será armazenada como Symbol
-
-Ferramenta : ChatGPT ( GPT -5.6 Luna )
-
-Trecho : rotina substituirSeqEscape para tratamento de sequências de escape
-
-Finalidade : pedi ajuda para identificar a causa de um problema de realce sintático no trecho case '"' e para revisar possíveis erros no código que escrevi
-
-O que fiz : usei a explicação para identificar que case '"' e charInserir = '"' são válidos em C e que havia um problema no uso de ponteiro e char na rotina
+O que fiz : usei a explicação para entender a diferença entre os tipos de erro léxico, as mensagens exigidas, o retorno de UNDEF e a forma de recuperação da leitura
 
 Ferramenta : ChatGPT ( GPT -5.6 Luna )
 
-Trecho : rotina substituirSeqEscape para conversão de sequências de escape
+Trecho : implementação da tabela de strings (tabelaStrings, adicionaString e retornaLexema)
 
-Finalidade : pedi uma revisão do código que escrevi para identificar erros na implementação da conversão de sequências de escape
+Finalidade : pedi uma revisão da estrutura e das funções para verificar se a implementação da tabela dinâmica de strings estava correta
 
-O que fiz : usei a explicação para identificar problemas de ponteiros, avanço no texto de entrada, caracteres normais não tratados, possível uso de variável não inicializada e perda do ponteiro para o início do buffer de saída
+O que fiz : usei a explicação para identificar erros de declaração da estrutura, uso de arrays e ponteiros, passagem da tabela por valor, realloc, alocação redundante e tamanho de memória
 
 Ferramenta : ChatGPT ( GPT -5.6 Luna )
 
-Trecho : rotina substituirSeqEscape para conversão de sequências de escape
+Trecho : implementação da tabela de strings e da função adicionaString
 
-Finalidade : pedi uma revisão da implementação atual da rotina para verificar os erros restantes na conversão de sequências de escape
+Finalidade : pedi uma revisão da nova versão da tabela dinâmica para identificar erros restantes na manipulação do ponteiro da estrutura e no realloc
 
-O que fiz : identifiquei o erro no acesso ao próximo caractere e compreendi que a conversão de uma sequência de dois caracteres para um único caractere exige separar posição de leitura e posição de escrita
+O que fiz : usei a explicação para identificar o uso incorreto de '.' em um ponteiro para tabela, o uso incorreto de tamanho no realloc e a necessidade de tratar a falha de alocação
+
+Ferramenta : ChatGPT ( GPT -5.6 Luna )
+
+Trecho : funções adicionaString e retornaLexema da tabela de strings
+
+Finalidade : pedi uma revisão da versão atual para verificar se os acessos por ponteiro e a estrutura das funções estavam corretos
+
+O que fiz : confirmei o uso correto de -> e identifiquei que ainda preciso tratar a falha de realloc e inicializar corretamente a tabela

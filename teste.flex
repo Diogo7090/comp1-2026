@@ -104,34 +104,7 @@ static int pode_ser_sinal(void) {
  
     return 0; 
 } 
-
-typedef struct {
-    int tamanho;
-    int posicaoOcupada;
-    char **listaString;
-}tabelaStrings;
-
-void adicionaString(tabelaStrings* tab) {
-    
-    if(tab->tamanho == tab->posicaoOcupada) {
-        tab->tamanho = (tab->tamanho)*2;
-        char **novaListaString = realloc(tab->listaString, tab->tamanho * sizeof(char *));
-
-        if(novaListaString == NULL) {
-            return 1;
-        }
-        tab->listaString= novaListaString;
-    }
-
-    tab->listaString[tab->posicaoOcupada++]=strdup(yytext);
-
-}
-
-char* retornaLexema(int indice, tabelaStrings* tab) {
-    return tab->listaString[indice];
-}
-
-
+ 
 %} 
  
 /* ----------------------------------------------------------------------- 
@@ -170,8 +143,7 @@ MINUS       -
 <COMMENT>"*/"       { BEGIN(INITIAL); } 
 <COMMENT>\n         { linha_atual++; } 
 <COMMENT><<EOF>>    { 
-                        BEGIN(INITIAL);
-                        microc_yylval.error_msg = "EOF em comentario"; 
+                        microc_yylval.error_msg = "EOF em comentario";
                         return UNDEF; 
                     } 
 <COMMENT>.          { /* consome qualquer outro caractere dentro do comentario */ } 
@@ -376,7 +348,6 @@ MINUS       -
 "]"                 { ultimo_token = RBRACKET; return RBRACKET; } 
  
 
-
 .                   { 
                         microc_yylval.error_msg = strdup(yytext); 
                         return UNDEF; 
@@ -393,9 +364,6 @@ int yywrap(void) {
 } 
  
 int main(int argc, char **argv) { 
-    tabelaStrings tabela(100,0);
-    tabela.listaString= (char**)malloc(tamanho *sizeof(char *));
-
     if (argc < 2) { 
         fprintf(stderr, "Uso: %s <arquivo.mc>\n", argv[0]); 
         return 1; 
@@ -409,15 +377,21 @@ int main(int argc, char **argv) {
  
     yyin = arquivo_fonte; 
  
-    int tipo; 
-    while ((tipo = yylex()) != END_OF_FILE) { 
-        if (tipo == UNDEF) { 
-            fprintf(stderr, "ERRO LEXICO (linha %d): %s\n", 
-                    linha_atual, microc_yylval.error_msg); 
-            continue; 
+    int tipo;
+
+    while ((tipo = yylex()) != END_OF_FILE) {
+        if (tipo == UNDEF) {
+            fprintf(stderr, "ERRO LEXICO (linha %d): %s\n",
+                    linha_atual, microc_yylval.error_msg);
+
+            if (strcmp(microc_yylval.error_msg, "EOF em comentario") == 0 ||
+                strcmp(microc_yylval.error_msg, "EOF em string") == 0) {
+                break;
+            }
+
+            continue;
         } 
  
-
         if (tipo == STRINGCONST || tipo == ID || tipo == INTEGERCONST || tipo == CHARCONST){
             printf("Token: tipo = %-13s lexema = '%s'  linha = %d\n", nome_token[tipo], microc_yylval.symbol, linha_atual);
         }
