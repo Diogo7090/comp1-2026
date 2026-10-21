@@ -21,6 +21,7 @@
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <string.h> 
+#include <stdbool.h>
  
 /* --------------------------------------------------------------------- 
  * 1. VOCABULARIO DE TOKENS (equivalente a tokens.h) 
@@ -95,7 +96,11 @@ void adicionaString(tabelaStrings* tab) {
         char **novaListaString = realloc(tab->listaString, tab->tamanho * sizeof(char *));
 
         if(novaListaString == NULL) {
+<<<<<<< HEAD
             return ;
+=======
+            //lançar exceção
+>>>>>>> diogo
         }
         tab->listaString= novaListaString;
     }
@@ -103,14 +108,28 @@ void adicionaString(tabelaStrings* tab) {
     for(int i = 0; i < tab->posicaoOcupada; i++) {
         if(strcmp(yytext,tab->listaString[i]) == 0) {
             existe=1;
+<<<<<<< HEAD
+=======
+            //return true;
+>>>>>>> diogo
         }
     }
     if(existe == 0) {
         tab->listaString[tab->posicaoOcupada++]=strdup(yytext);
+<<<<<<< HEAD
+=======
+        //return true;
+>>>>>>> diogo
     }
 }
 
 char* retornaLexema(int indice, tabelaStrings* tab) {
+<<<<<<< HEAD
+=======
+    if(indice < tab->tamanho) {
+        //lançar um exceção
+    }
+>>>>>>> diogo
     return tab->listaString[indice];
 }
 

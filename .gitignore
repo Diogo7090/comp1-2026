@@ -1,0 +1,5 @@
+/tests
+!/tests/test[0-9].mc
+lexer
+lex.yy.c
+TP1_Analise_Lexica_MicroC.pdf
