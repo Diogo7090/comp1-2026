@@ -21,6 +21,7 @@
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <string.h> 
+#include <stdbool.h>
  
 /* --------------------------------------------------------------------- 
  * 1. VOCABULARIO DE TOKENS (equivalente a tokens.h) 
@@ -77,8 +78,51 @@ int linha_atual = 1;
 TokenType ultimo_token = UNDEF;
 
 char lexema[4000];
- 
-static void guarda_lexema(void) { 
+
+typedef struct {
+    int tamanho;
+    int posicaoOcupada;
+    char **listaString;
+}tabelaStrings;
+
+tabelaStrings tabela;
+
+void adicionaString(tabelaStrings* tab) {
+
+    int existe = 0;
+    
+    if(tab->tamanho == tab->posicaoOcupada) {
+        tab->tamanho = (tab->tamanho)*2;
+        char **novaListaString = realloc(tab->listaString, tab->tamanho * sizeof(char *));
+
+        if(novaListaString == NULL) {
+            //lançar exceção
+        }
+        tab->listaString= novaListaString;
+    }
+    
+    for(int i = 0; i < tab->posicaoOcupada; i++) {
+        if(strcmp(yytext,tab->listaString[i]) == 0) {
+            existe=1;
+            //return true;
+        }
+    }
+    if(existe == 0) {
+        tab->listaString[tab->posicaoOcupada++]=strdup(yytext);
+        //return true;
+    }
+}
+
+char* retornaLexema(int indice, tabelaStrings* tab) {
+    if(indice < tab->tamanho) {
+        //lançar um exceção
+    }
+    return tab->listaString[indice];
+}
+
+static void guarda_lexema(void) {
+
+    adicionaString(&tabela);
     microc_yylval.symbol = strdup(yytext); 
 } 
  
@@ -104,7 +148,9 @@ static int pode_ser_sinal(void) {
  
     return 0; 
 } 
- 
+
+
+
 %} 
  
 /* ----------------------------------------------------------------------- 
@@ -143,6 +189,7 @@ MINUS       -
 <COMMENT>"*/"       { BEGIN(INITIAL); } 
 <COMMENT>\n         { linha_atual++; } 
 <COMMENT><<EOF>>    { 
+                        BEGIN(INITIAL);
                         microc_yylval.error_msg = "EOF em comentario"; 
                         return UNDEF; 
                     } 
@@ -348,6 +395,7 @@ MINUS       -
 "]"                 { ultimo_token = RBRACKET; return RBRACKET; } 
  
 
+
 .                   { 
                         microc_yylval.error_msg = strdup(yytext); 
                         return UNDEF; 
@@ -364,6 +412,13 @@ int yywrap(void) {
 } 
  
 int main(int argc, char **argv) { 
+    tabela.tamanho=100;
+    tabela.posicaoOcupada=0;
+    tabela.listaString= (char**)malloc(tabela.tamanho *sizeof(char *));
+
+
+
+
     if (argc < 2) { 
         fprintf(stderr, "Uso: %s <arquivo.mc>\n", argv[0]); 
         return 1; 
@@ -392,8 +447,9 @@ int main(int argc, char **argv) {
         else{
             printf("Token: tipo = %-13s lexema = '%s'  linha = %d\n", nome_token[tipo], yytext, linha_atual);
         }
+
+
     } 
- 
     fclose(arquivo_fonte); 
     return 0; 
 }

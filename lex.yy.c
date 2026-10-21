@@ -475,7 +475,7 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "microc3.flex"
+#line 1 "microc3copy.flex"
 /* 
  * microc.flex 
  * 
@@ -494,10 +494,11 @@ char *yytext;
  * Uso: 
  *      ./lexer test.mc 
  */ 
-#line 21 "microc3.flex"
+#line 21 "microc3copy.flex"
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <string.h> 
+#include <stdbool.h>
  
 /* --------------------------------------------------------------------- 
  * 1. VOCABULARIO DE TOKENS (equivalente a tokens.h) 
@@ -554,8 +555,51 @@ int linha_atual = 1;
 TokenType ultimo_token = UNDEF;
 
 char lexema[4000];
- 
-static void guarda_lexema(void) { 
+
+typedef struct {
+    int tamanho;
+    int posicaoOcupada;
+    char **listaString;
+}tabelaStrings;
+
+tabelaStrings tabela;
+
+void adicionaString(tabelaStrings* tab) {
+
+    int existe = 0;
+    
+    if(tab->tamanho == tab->posicaoOcupada) {
+        tab->tamanho = (tab->tamanho)*2;
+        char **novaListaString = realloc(tab->listaString, tab->tamanho * sizeof(char *));
+
+        if(novaListaString == NULL) {
+            //lançar exceção
+        }
+        tab->listaString= novaListaString;
+    }
+    
+    for(int i = 0; i < tab->posicaoOcupada; i++) {
+        if(strcmp(yytext,tab->listaString[i]) == 0) {
+            existe=1;
+            //return true;
+        }
+    }
+    if(existe == 0) {
+        tab->listaString[tab->posicaoOcupada++]=strdup(yytext);
+        //return true;
+    }
+}
+
+char* retornaLexema(int indice, tabelaStrings* tab) {
+    if(indice < tab->tamanho) {
+        //lançar um exceção
+    }
+    return tab->listaString[indice];
+}
+
+static void guarda_lexema(void) {
+
+    adicionaString(&tabela);
     microc_yylval.symbol = strdup(yytext); 
 } 
  
@@ -581,13 +625,15 @@ static int pode_ser_sinal(void) {
  
     return 0; 
 } 
- 
-#line 585 "lex.yy.c"
+
+
+
+#line 631 "lex.yy.c"
 /* ----------------------------------------------------------------------- 
  * 2. SECAO DE DEFINICOES 
  * ------------------------------------------------------------------- */ 
 
-#line 590 "lex.yy.c"
+#line 636 "lex.yy.c"
 
 #define INITIAL 0
 #define COMMENT 1
@@ -806,9 +852,9 @@ YY_DECL
 		}
 
 	{
-#line 121 "microc3.flex"
+#line 167 "microc3copy.flex"
 
-#line 123 "microc3.flex"
+#line 169 "microc3copy.flex"
   /* ----------------------------------------------------------------------- 
    * 3. SECAO DE REGRAS 
    * --------------------------------------------------------------------- */ 
@@ -818,7 +864,7 @@ YY_DECL
    * do flex), pois o token UNDEF tambem vale 0 no enum TokenType -- se 
    * dependessemos do comportamento padrao, um erro lexico seria 
    * confundido com o fim do arquivo pelo main() de teste abaixo. */ 
-#line 821 "lex.yy.c"
+#line 867 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -876,19 +922,19 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case YY_STATE_EOF(INITIAL):
-#line 132 "microc3.flex"
+#line 178 "microc3copy.flex"
 { return END_OF_FILE; }
 	YY_BREAK
 /* --- Espacos em branco e quebras de linha ---------------------------- */ 
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 135 "microc3.flex"
+#line 181 "microc3copy.flex"
 { linha_atual++; } 
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 136 "microc3.flex"
+#line 182 "microc3copy.flex"
 { /* ignora espacos em branco */ } 
 	YY_BREAK
 /* --- Comentarios ------------------------------------------------------ 
@@ -896,41 +942,42 @@ YY_RULE_SETUP
    * de tratamento de erro via EOF dentro de um estado especial. */ 
 case 3:
 YY_RULE_SETUP
-#line 141 "microc3.flex"
+#line 187 "microc3copy.flex"
 { /* comentario de linha: ignora ate o fim da linha */ } 
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 143 "microc3.flex"
+#line 189 "microc3copy.flex"
 { BEGIN(COMMENT); } 
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 144 "microc3.flex"
+#line 190 "microc3copy.flex"
 { BEGIN(INITIAL); } 
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 145 "microc3.flex"
+#line 191 "microc3copy.flex"
 { linha_atual++; } 
 	YY_BREAK
 case YY_STATE_EOF(COMMENT):
-#line 146 "microc3.flex"
+#line 192 "microc3copy.flex"
 { 
+                        BEGIN(INITIAL);
                         microc_yylval.error_msg = "EOF em comentario"; 
                         return UNDEF; 
                     } 
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 150 "microc3.flex"
+#line 197 "microc3copy.flex"
 { /* consome qualquer outro caractere dentro do comentario */ } 
 	YY_BREAK
 /* Fechamento de comentario sem abertura correspondente. */ 
 case 8:
 YY_RULE_SETUP
-#line 153 "microc3.flex"
+#line 200 "microc3copy.flex"
 { 
                         microc_yylval.error_msg = "Comentario nao iniciado"; 
                         return UNDEF; 
@@ -938,7 +985,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 158 "microc3.flex"
+#line 205 "microc3copy.flex"
 { 
     if (strcmp(yytext, "if")==0){ 
         ultimo_token = IF; 
@@ -987,7 +1034,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 205 "microc3.flex"
+#line 252 "microc3copy.flex"
 { 
     if (pode_ser_sinal()) { 
         guarda_lexema(); 
@@ -1002,7 +1049,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 217 "microc3.flex"
+#line 264 "microc3copy.flex"
 { 
                         guarda_lexema(); 
                         ultimo_token = INTEGERCONST; 
@@ -1011,7 +1058,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 224 "microc3.flex"
+#line 271 "microc3copy.flex"
 { 
     guarda_lexema(); 
     ultimo_token = CHARCONST; 
@@ -1020,7 +1067,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 230 "microc3.flex"
+#line 277 "microc3copy.flex"
 { 
     microc_yylval.error_msg = "Char constante nao terminada";
     return UNDEF; 
@@ -1028,7 +1075,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 238 "microc3.flex"
+#line 285 "microc3copy.flex"
 {
     int caractere;
     int posicao = 0;
@@ -1106,63 +1153,63 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 314 "microc3.flex"
+#line 361 "microc3copy.flex"
 { ultimo_token = EQ; return EQ; } 
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 315 "microc3.flex"
+#line 362 "microc3copy.flex"
 { ultimo_token = ASSIGN; return ASSIGN; } 
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 317 "microc3.flex"
+#line 364 "microc3copy.flex"
 { ultimo_token = NEQ; return NEQ; } 
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 318 "microc3.flex"
+#line 365 "microc3copy.flex"
 { ultimo_token = NOT; return NOT; } 
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 320 "microc3.flex"
+#line 367 "microc3copy.flex"
 { ultimo_token = LEQ; return LEQ; } 
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 321 "microc3.flex"
+#line 368 "microc3copy.flex"
 { ultimo_token = LT; return LT; } 
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 323 "microc3.flex"
+#line 370 "microc3copy.flex"
 { ultimo_token = GEQ; return GEQ; } 
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 324 "microc3.flex"
+#line 371 "microc3copy.flex"
 { ultimo_token = GT; return GT; } 
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 326 "microc3.flex"
+#line 373 "microc3copy.flex"
 { ultimo_token = AND; return AND; } 
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 328 "microc3.flex"
+#line 375 "microc3copy.flex"
 { ultimo_token = OR; return OR; } 
 	YY_BREAK
 /* --- Operadores aritmeticos e simbolos de pontuacao (ja prontos) ------ */ 
 case 25:
 YY_RULE_SETUP
-#line 332 "microc3.flex"
+#line 379 "microc3copy.flex"
 { ultimo_token = PLUS; return PLUS; } 
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 334 "microc3.flex"
+#line 381 "microc3copy.flex"
 {  
                         ultimo_token = MINUS; 
                         return MINUS;  
@@ -1170,62 +1217,62 @@ YY_RULE_SETUP
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 339 "microc3.flex"
+#line 386 "microc3copy.flex"
 { ultimo_token = MUL; return MUL; } 
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 340 "microc3.flex"
+#line 387 "microc3copy.flex"
 { ultimo_token = DIV; return DIV; } 
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 341 "microc3.flex"
+#line 388 "microc3copy.flex"
 { ultimo_token = MOD; return MOD; } 
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 342 "microc3.flex"
+#line 389 "microc3copy.flex"
 { ultimo_token = SEMICOLON; return SEMICOLON; } 
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 343 "microc3.flex"
+#line 390 "microc3copy.flex"
 { ultimo_token = COMMA; return COMMA; } 
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 344 "microc3.flex"
+#line 391 "microc3copy.flex"
 { ultimo_token = LPAREN; return LPAREN; } 
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 345 "microc3.flex"
+#line 392 "microc3copy.flex"
 { ultimo_token = RPAREN; return RPAREN; } 
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 346 "microc3.flex"
+#line 393 "microc3copy.flex"
 { ultimo_token = LBRACE; return LBRACE; } 
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 347 "microc3.flex"
+#line 394 "microc3copy.flex"
 { ultimo_token = RBRACE; return RBRACE; } 
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 348 "microc3.flex"
+#line 395 "microc3copy.flex"
 { ultimo_token = LBRACKET; return LBRACKET; } 
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 349 "microc3.flex"
+#line 396 "microc3copy.flex"
 { ultimo_token = RBRACKET; return RBRACKET; } 
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 352 "microc3.flex"
+#line 400 "microc3copy.flex"
 { 
                         microc_yylval.error_msg = strdup(yytext); 
                         return UNDEF; 
@@ -1233,10 +1280,10 @@ YY_RULE_SETUP
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 357 "microc3.flex"
+#line 405 "microc3copy.flex"
 ECHO;
 	YY_BREAK
-#line 1239 "lex.yy.c"
+#line 1286 "lex.yy.c"
 case YY_STATE_EOF(STRING):
 	yyterminate();
 
@@ -2241,7 +2288,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 357 "microc3.flex"
+#line 405 "microc3copy.flex"
 
  
 /* ----------------------------------------------------------------------- 
@@ -2253,6 +2300,13 @@ int yywrap(void) {
 } 
  
 int main(int argc, char **argv) { 
+    tabela.tamanho=100;
+    tabela.posicaoOcupada=0;
+    tabela.listaString= (char**)malloc(tabela.tamanho *sizeof(char *));
+
+
+
+
     if (argc < 2) { 
         fprintf(stderr, "Uso: %s <arquivo.mc>\n", argv[0]); 
         return 1; 
@@ -2281,8 +2335,9 @@ int main(int argc, char **argv) {
         else{
             printf("Token: tipo = %-13s lexema = '%s'  linha = %d\n", nome_token[tipo], yytext, linha_atual);
         }
+
+
     } 
- 
     fclose(arquivo_fonte); 
     return 0; 
 }
